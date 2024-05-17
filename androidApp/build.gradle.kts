@@ -45,5 +45,8 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.material)
     debugImplementation(libs.compose.ui.tooling)
 }

@@ -1,5 +1,6 @@
 package com.transparency.testerai.android
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -8,6 +9,7 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -25,10 +27,28 @@ class MainActivity : ComponentActivity() {
         val webView: WebView = findViewById(R.id.webView)
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
         val errorMessage: TextView = findViewById(R.id.errorMessage)
+        val btnHelp: Button = findViewById(R.id.btn_help)
+        val btnSpotKits: Button = findViewById(R.id.btn_spot_kits)
         val retry: TextView = findViewById(R.id.retry)
+
+        btnHelp.apply {
+            setOnClickListener {
+                val intent = Intent(context, InstructionsActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        btnSpotKits.apply {
+            setOnClickListener {
+                val intent = Intent(context, SpotKitActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         retry.setOnClickListener {
             webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
         }
+
         webView.apply {
             settings.domStorageEnabled = true
             settings.javaScriptCanOpenWindowsAutomatically = true
@@ -88,6 +108,16 @@ class MainActivity : ComponentActivity() {
         }
 
         webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
+
+        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        val tutorialViewed = sharedPreferences.getBoolean("tutorial_viewed", false)
+
+        // Only show tutorial if they have not viewed it before
+        if(!tutorialViewed) {
+            val intent = Intent(this, InstructionsActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
