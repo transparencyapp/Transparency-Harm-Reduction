@@ -5,45 +5,33 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val swipeRefreshLayout: SwipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         val webView: WebView = findViewById(R.id.webView)
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
         val errorMessage: TextView = findViewById(R.id.errorMessage)
-        val btnHelp: Button = findViewById(R.id.btn_help)
-        val btnSpotKits: Button = findViewById(R.id.btn_spot_kits)
         val retry: TextView = findViewById(R.id.retry)
-
-        btnHelp.apply {
-            setOnClickListener {
-                val intent = Intent(context, InstructionsActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
-        btnSpotKits.apply {
-            setOnClickListener {
-                val intent = Intent(context, SpotKitActivity::class.java)
-                startActivity(intent)
-            }
-        }
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setActionBar(toolbar)
+        actionBar.apply { title = "" }
 
         retry.setOnClickListener {
             webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
@@ -57,16 +45,6 @@ class MainActivity : ComponentActivity() {
             settings.javaScriptEnabled = true
             settings.databaseEnabled = true
         }
-
-        // Set up refresh listener
-//        swipeRefreshLayout.setOnRefreshListener {
-//            webView.reload()
-//        }
-
-//        swipeRefreshLayout.apply {
-//        webView.setOnScrollChangeListener { _, _, scrollY, _, _ ->
-//            swipeRefreshLayout.isEnabled = scrollY == 0
-//        }
 
         webView.webViewClient = object : WebViewClient() {
 
@@ -91,8 +69,6 @@ class MainActivity : ComponentActivity() {
                 super.onPageFinished(view, url)
                 progressBar.visibility = ProgressBar.GONE
                 retry.visibility = TextView.GONE
-                // Configure WebView to stop refreshing when the page is finished loading
-//                swipeRefreshLayout.isRefreshing = false
             }
 
             override fun onReceivedError(
@@ -118,6 +94,28 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_help -> {
+                Log.v("asdf", "hasdf")
+                startActivity(Intent(this, InstructionsActivity::class.java))
+                true
+            }
+            R.id.action_spot_kits -> {
+                Log.v("asdf", "fdasd")
+                startActivity(Intent(this, SpotKitActivity::class.java))
+                true
+            }
+            // Handle other action items as needed
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
 

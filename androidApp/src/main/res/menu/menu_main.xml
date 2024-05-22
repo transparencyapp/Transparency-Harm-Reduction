@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_help"
+        android:title="App Guide"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_spot_kits"
+        android:title="Spot Kit Guide"
+        app:showAsAction="never"/>
+</menu>
