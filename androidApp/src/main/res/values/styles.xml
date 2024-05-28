@@ -1,6 +1,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
         <!-- Customize your theme here -->
     </style>
 </resources>
