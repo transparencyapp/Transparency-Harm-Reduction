@@ -85,14 +85,14 @@ class MainActivity : ComponentActivity() {
 
         webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
 
-        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-        val tutorialViewed = sharedPreferences.getBoolean("tutorial_viewed", false)
-
-        // Only show tutorial if they have not viewed it before
-        if(!tutorialViewed) {
-            val intent = Intent(this, InstructionsActivity::class.java)
-            startActivity(intent)
-        }
+//        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+//        val tutorialViewed = sharedPreferences.getBoolean("tutorial_viewed", false)
+//
+//        // Only show tutorial if they have not viewed it before
+//        if(!tutorialViewed) {
+//            val intent = Intent(this, InstructionsActivity::class.java)
+//            startActivity(intent)
+//        }
 
     }
 
@@ -104,30 +104,15 @@ class MainActivity : ComponentActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_help -> {
-                Log.v("asdf", "hasdf")
                 startActivity(Intent(this, InstructionsActivity::class.java))
                 true
             }
             R.id.action_spot_kits -> {
-                Log.v("asdf", "fdasd")
                 startActivity(Intent(this, SpotKitActivity::class.java))
                 true
             }
             // Handle other action items as needed
             else -> super.onOptionsItemSelected(item)
         }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
     }
 }

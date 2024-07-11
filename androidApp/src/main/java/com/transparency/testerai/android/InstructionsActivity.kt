@@ -26,10 +26,10 @@ class InstructionsActivity : ComponentActivity() {
         btnDone.apply {
             setOnClickListener {
                 // Write to prefs so tutorial doesnt show again later
-                val sharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.putBoolean("tutorial_viewed", true)
-                editor.apply()
+//                val sharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
+//                val editor = sharedPreferences.edit()
+//                editor.putBoolean("tutorial_viewed", true)
+//                editor.apply()
 
                 // Proceed to main activity
                 finish()
