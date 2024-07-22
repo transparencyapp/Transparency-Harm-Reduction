@@ -18,11 +18,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if showInstructions {
-                    InstructionsView(showInstructions: $showInstructions)
-                        .padding(.top, 40)
-                        .edgesIgnoringSafeArea(.all)
-                } else {
+//                if showInstructions {
+//                    InstructionsView(showInstructions: $showInstructions)
+//                        .padding(.top, 40)
+//                        .edgesIgnoringSafeArea(.all)
+//                } else {
                     ZStack {
                         WebView(url: "https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html", isLoading: $isLoading)
                             .padding(.top, 40)
@@ -33,7 +33,7 @@ struct ContentView: View {
                                 .scaleEffect(2)
                         }
                     }
-                }
+//                }
             }
             .navigationBarItems(trailing:
                 Menu {
