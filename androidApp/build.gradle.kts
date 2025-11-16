@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace = "com.transparency.testerai.android"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.transparency.testerai.android"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 2
-        versionName = "1.01"
+        targetSdk = 35
+        versionCode = 3
+        versionName = "1.02"
     }
     buildFeatures {
         compose = true
