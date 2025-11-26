@@ -10,8 +10,8 @@ android {
         applicationId = "com.transparency.testerai.android"
         minSdk = 24
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.02"
+        versionCode = 4
+        versionName = "1.03"
     }
     buildFeatures {
         compose = true

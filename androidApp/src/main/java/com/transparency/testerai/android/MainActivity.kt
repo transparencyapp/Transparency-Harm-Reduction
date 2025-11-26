@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
         actionBar.apply { title = "" }
 
         retry.setOnClickListener {
-            webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
+            webView.loadUrl("https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/10/18/20250610184208-S2WRA6N1.json")
         }
 
         webView.apply {
@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        webView.loadUrl("https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html")
+        webView.loadUrl("https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/10/18/20250610184208-S2WRA6N1.json")
 
 //        val sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
 //        val tutorialViewed = sharedPreferences.getBoolean("tutorial_viewed", false)

@@ -24,7 +24,7 @@ struct ContentView: View {
 //                        .edgesIgnoringSafeArea(.all)
 //                } else {
                     ZStack {
-                        WebView(url: "https://mediafiles.botpress.cloud/697af148-5a35-46d1-b017-c1be5192d0d2/webchat/bot.html", isLoading: $isLoading)
+                        WebView(url: "https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/10/18/20250610184208-S2WRA6N1.json", isLoading: $isLoading)
                             .padding(.top, 40)
                             .edgesIgnoringSafeArea(.all)
                         if isLoading {
